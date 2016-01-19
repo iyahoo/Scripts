@@ -9,6 +9,7 @@
       - homebrew/x11/
       - snmsts/roswell/
     homebrew_packages:
+      - { name: git }
       - { name: ghc }
       - { name: cabal-install }
       - { name: ocaml }
