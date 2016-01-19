@@ -8,6 +8,7 @@ brew install python
 brew install ansible
 mkdir .macbook-provisioning
 cd .macbook-provisioning/
-echo 'localhost' > hosts
 brew install git
 git clone https://github.com/iyahoo/Scripts.git
+cp Scripts/OSX/localhost.yml . && cp Scripts/OSX/hosts .
+
