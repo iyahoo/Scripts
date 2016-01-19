@@ -11,4 +11,4 @@ cd .macbook-provisioning/
 brew install git
 git clone https://github.com/iyahoo/Scripts.git
 cp Scripts/OSX/localhost.yml . && cp Scripts/OSX/hosts .
-
+HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-playbook -i hosts -vv localhost.yml
