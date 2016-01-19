@@ -5,9 +5,9 @@
   vars:
     homebrew_taps:
       - caskroom/cask
-      - homebrew/dupes/
-      - homebrew/x11/
-      - snmsts/roswell/
+      - homebrew/dupes
+      - homebrew/x11
+      - snmsts/roswell
     homebrew_packages:
       - { name: git }
       - { name: ghc }
