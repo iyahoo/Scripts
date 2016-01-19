@@ -5,55 +5,51 @@
   vars:
     homebrew_taps:
       - caskroom/cask
+      - homebrew/dupes/
+      - homebrew/x11/
+      - snmsts/roswell/
     homebrew_packages:
-      - { name: xz }
-      - { name: pkg-config }
-      - { name: gettext }
-      - { name: libffi }
-      - { name: glib }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
-      - { name:  }
+      - { name: ghc }
+      - { name: cabal-install }
+      - { name: ocaml }
+      - { name: imagemagick }
+      - { name: cask }
+      - { name: cmake }
+      - { name: readline }
+      - { name: openssl }
+      - { name: python }
+      - { name: llvm }
+      - { name: clang-format }
+      - { name: nkf }
+      - { name: cmigemo }
+      - { name: coq }
+      - { name: gauche }
+      - { name: gnu-sed }
+      - { name: leiningen }
+      - { name: lftp }
+      - { name: pandoc }
+      - { name: proof-general }
+      - { name: racket }
+      - { name: rlwrap }
+      - { name: ruby }
+      - { name: stow }
+      - { name: wget}
+      - { name: screen }
+      - { name: swi-prolog }
+      - { name: roswell }
     homebrew_cask_packages:
       - { name: emacs-mac }
       - { name: iterm2 }
-      - { name: firefox }
       - { name: google-chrome }
-      - { name: adobe-reader }
       - { name: java }
       - { name: skype }
       - { name: slack }
-      - { name: sourcetree }
-      - { name: gitx }
       - { name: karabiner }
-      - { name: seil }
-      - { name: flux }
-      - { name: dash }
-      - { name: skitch }
-      - { name: seashore }
-      - { name: atom }
-      - { name: kobito }
-      - { name: webstorm }
-      - { name: phpstorm }
-      - { name: intellij-idea }
       - { name: vagrant }
       - { name: virtualbox }
+      - { name: aquaterm }
+      - { name: amethyst }
+      - { name: mactex }
 
   tasks:
     - name: homebrew の tap リポジトリを追加
@@ -93,26 +89,3 @@
     - name: cask パッケージの情報を保存
       shell: brew cask info {{ item }} > cask_info/{{ item }}
       with_items: cask_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
-
-    # oh-my-zsh
-    - name: oh-my-zsh のインストール
-      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-      args:
-        creates: ~/.oh-my-zsh/
-
-    # Ricty
-    - name: xquartz のインストール (for Ricty)
-      homebrew_cask: name=xquartz
-    - name: fontforge のインストール (for Ricty)
-      homebrew: name=fontforge
-    - name: Ricty のインストール
-      homebrew: name=ricty
-    - name: 生成されたフォントファイルをコピー
-      shell: cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
-      args:
-        creates: ~/Library/Fonts/Ricty-Bold.ttf
-      notify: run fc-cache
-
-  handlers:
-    - name: run fc-cache
-      shell: fc-cache -vf
