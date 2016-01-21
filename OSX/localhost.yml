@@ -1,6 +1,6 @@
 - hosts: localhost
   connection: local
-  gather_facts: no           
+  gather_facts: no
   sudo: no
   vars:
     homebrew_taps:
@@ -39,8 +39,8 @@
       - { name: swi-prolog }
       - { name: roswell }
     homebrew_cask_packages:
-      - { name: emacs-mac }
-      - { name: iterm2 }
+      - { name: emacs }
+      - { name: dropbox }
       - { name: google-chrome }
       - { name: java }
       - { name: skype }
