@@ -9,6 +9,7 @@
       - homebrew/x11
       - snmsts/roswell
     homebrew_packages:
+      - { name: zsh }
       - { name: git }
       - { name: ghc }
       - { name: cabal-install }
@@ -18,7 +19,6 @@
       - { name: cmake }
       - { name: readline }
       - { name: openssl }
-      - { name: python }
       - { name: llvm }
       - { name: clang-format }
       - { name: nkf }
@@ -38,6 +38,7 @@
       - { name: screen }
       - { name: swi-prolog }
       - { name: roswell }
+      - { name: ghostscript }
     homebrew_cask_packages:
       - { name: emacs }
       - { name: dropbox }
@@ -51,6 +52,7 @@
       - { name: aquaterm }
       - { name: amethyst }
       - { name: mactex }
+      - { name: latexit}
 
   tasks:
     - name: homebrew の tap リポジトリを追加
